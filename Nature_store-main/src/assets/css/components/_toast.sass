@@ -1,0 +1,23 @@
+.toast
+  position: fixed
+  right: 0
+  top: calc(4.5rem - 2px)
+  z-index: 1500
+  border-radius: 3px
+  min-width: 75vw
+  +media-breakpoint-up(md)
+    min-width: 0
+    top: 4.5rem
+    right: 1rem
+  &.hide
+    display: none
+  
+.toast-danger
+  background: $red-100
+  border-color: $red-200
+  color: $danger
+
+.toast-success
+  background: desaturate($purple-100, 30%)
+  border-color: lighten($primary, 40%)
+  color: lighten($primary, 15%)

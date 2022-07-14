@@ -1,0 +1,153 @@
+.front
+  background: $snow
+  .form-control
+    background: transparent
+    border-radius: 0
+    border: 1px solid rgba($light, .2)
+    text-align: center
+    color: $light
+    padding: .6rem
+    &::after
+      content: ''
+      display: block
+      position: absolute
+      width: 100%
+      height: 100%
+    &:focus, &:hover
+      color: $light
+      box-shadow: none
+      background: transparent
+      outline: 0
+      border-color: rgba($light, .6)
+  .panya-input
+    border: 1px solid $gray-500
+    color: $blue-400
+    font-weight: 500
+    padding: 1rem
+    &:focus, &:hover
+      color: $primary
+      border-color: $primary
+  form .panya-input
+    font-weight: 400
+  input:disabled
+    color: $blue-300
+    border-color: $gray-500
+    &:focus, &:hover
+      color: $blue-300
+      border-color: $gray-500
+  form .panya-input
+    text-align: left
+    padding: .3rem
+  .btn
+    letter-spacing: 2px
+    border-radius: 0 !important
+    &-light
+      &:hover
+        background: $primary
+        border-color: $primary
+        color: $white
+  .path
+    color: $secondary
+    .active
+      color: $primary
+  .cookie
+    color: lighten($brown, 50%)
+  .pagination
+    .page-link
+      background: transparent
+      border-color: lighten($brown, 50%)
+      &:hover
+        background: rgba(lighten($brown, 60%), .7)
+    .active .page-link
+      background: $primary
+      border-color: $primary
+
+.bg-cover
+  background-repeat: no-repeat
+  background-position: center center
+  background-size: cover
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 55vh
+  min-height: 20rem
+  +media-breakpoint-up(md)
+    background-attachment: fixed
+  & > *
+    z-index: 2
+  &::after
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    z-index: 1
+
+.banner
+  background-image: url('https://i.imgur.com/IHhuCdG.jpg')
+  &::after
+    background: linear-gradient(180deg, $warm 0%, $brown 100%)
+    opacity: .2
+  h1
+    text-shadow: 0 1px 3px rgba($brown, .3)
+  a
+    padding: .8rem
+
+.booking
+  height: 30vh
+  min-height: 20rem
+  background-image: url('https://i.imgur.com/q6LjeUY.jpg')
+  .form-control
+    border-color: rgba($white, .5)
+  &::after
+    background: $dark
+    opacity: .5
+
+header
+  background-image: url('https://i.imgur.com/rfdVSxo.jpg')
+  object-fit:cover
+  opacity: 0.7
+  padding: 3rem 0 0
+  text-align: center
+  position: relative
+  +media-breakpoint-up(md)
+    padding: 5rem 5rem 7.5rem
+  .aboutTitle
+    color:#FFFFFF
+  .header-img
+    width: 100%
+    height: 10rem
+    margin-top: 2.5rem
+    background-position: center 35%
+    background-size: cover
+    background-repeat: no-repeat
+    +media-breakpoint-up(md)
+      height: 17.5rem
+      margin-bottom: -17.5rem
+    &.bg-center
+      background-position: center center
+  & + .container
+    margin-top: 2.5rem
+    +media-breakpoint-up(md)
+      margin-top: 12.5rem
+      padding: 0 10rem
+
+.steps
+  li
+    width: calc((100% - 2rem) / 3)
+    background: rgba(lighten($brown, 60%), .6)
+    padding: 1rem
+    text-align: center
+    color: $secondary
+    & + li
+      margin-left: 1rem
+    &.active
+      background: $primary
+      color: $white
+  small
+    display: block
+  span
+    display: block
+    
