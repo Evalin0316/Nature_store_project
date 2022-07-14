@@ -92,7 +92,7 @@ export default {
   },
   methods: {
     checking() {
-      let token = document.cookie.replace(/(?:(?:^|.*;\s*)panyaToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+      let token = document.cookie.replace(/(?:(?:^|.*;\s*)natureToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
       this.$emitter.on('upload-check', (val) => {
         token = val;
       });
@@ -117,7 +117,7 @@ export default {
       this.$emitter.emit('page-loading', true);
       apiUserLogout()
         .then((res) => {
-          document.cookie = `panyaToken= ; expires=${new Date()}`;
+          document.cookie = `natureToken= ; expires=${new Date()}`;
           this.$router.push('/login');
           this.$pushMessage(res);
         })

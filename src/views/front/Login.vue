@@ -92,7 +92,7 @@ export default {
             this.$emitter.emit('page-loading', false);
           } else {
             const { token, expired } = res.data;
-            document.cookie = `panyaToken=${token}; expires=${new Date(expired)}`;
+            document.cookie = `natureToken=${token}; expires=${new Date(expired)}`;
             this.$router.push('/admin/products');
           }
         })
