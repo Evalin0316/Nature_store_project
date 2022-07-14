@@ -200,6 +200,7 @@ export default {
   watch: {
     modalData() {
       this.datas = { ...this.modalData };
+      console.log(this.datas);
       if (!this.datas.tag) {
         this.datas.tag = [];
       }
@@ -207,7 +208,7 @@ export default {
         this.datas.id = '';
       }
       this.insertTag = '';
-      this.getContent();
+      this.getContent(); // 點編輯時塞資料
     },
   },
 };

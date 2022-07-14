@@ -3,13 +3,13 @@ import axios from 'axios';
 const api = process.env.VUE_APP_API;
 const path = process.env.VUE_APP_PATH;
 
-// 後台相關 (需驗證)
-export const apiUserLogin = (data) => axios.post(`${api}/admin/signin`, data);
-export const apiUserLogout = () => axios.post(`${api}/logout`);
-export const apiUserCheck = () => axios.post(`${api}/api/user/check`);
+// 後台 (需驗證)
+export const userLogin = (data) => axios.post(`${api}/admin/signin`, data);
+export const userLogout = () => axios.post(`${api}/logout`);
+export const userCheck = () => axios.post(`${api}/api/user/check`);
 
 // 商品管理
-export const apiGetAllProducts = () => axios.get(
+export const getAllProducts = () => axios.get(
   `${api}/api/${path}/admin/products/all`,
 );
 export const apiGetProducts = (page = 1) => axios.get(
@@ -64,7 +64,7 @@ export const apiDeleteArticle = (id) => axios.delete(
   `${api}/api/${path}/admin/article/${id}`,
 );
 
-// 前台相關
+// 前台
 
 // 商品
 export const apiAllProducts = () => axios.get(

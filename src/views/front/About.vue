@@ -7,16 +7,14 @@
     <div
       class="
         container-fluid
-        px-3 px-md-0
-        pb-5
         d-flex
-        justify-center
-        flex-wrap
+        justify-content-center
+        px-3
+        px-md-0
       "
-      style="width: 90%"
+      style="width: 100%"
     >
-    <div class="d-flex justify-between">
-      <div>
+    <div>
         <h1 class="fs-4 mt-5 font-weight-bold">品牌理念</h1>
         <p class="m-4 flex">
           自然X舒適的時裝搭配，充分享受自由的生活，創造屬於自己的穿搭樂趣
@@ -33,7 +31,6 @@
           <li>客服專線：(02)12345678</li>
         </ul>
       </div>
-    </div>
     </div>
   </div>
 </template>

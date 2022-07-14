@@ -21,6 +21,13 @@ const routes = [
           title: '關於',
         },
       }, {
+        path: '/news',
+        name: 'News',
+        component: () => import('@/views/front/News.vue'),
+        meta: {
+          title: '最新消息',
+        },
+      }, {
         path: '/products',
         name: 'Products',
         component: () => import('@/views/front/Products.vue'),

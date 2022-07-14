@@ -80,7 +80,7 @@
 
 <script>
 import {
-  apiGetAllProducts,
+  getAllProducts,
   apiUpdateProducts,
   apiDeleteProducts,
 } from '@/scripts/api';
@@ -114,13 +114,13 @@ export default {
     };
   },
   methods: {
-    getAllProducts(page = 1) {
-      apiGetAllProducts()
+    getProducts(page = 1) {
+      getAllProducts()
         .then((res) => {
           if (!res.data.success) {
             this.$pushMessage(res);
           }
-          this.products = Object.values(res.data.products).reverse();
+          this.products = Object.values(res.data.products).reverse(); // 取id value
           const arry = this.products.map((item) => item.category);
           const newSet = new Set(arry);
           this.category = [...newSet];
@@ -161,7 +161,7 @@ export default {
       apiUpdateProducts(method, { data }, id)
         .then((res) => {
           if (res.data.success) {
-            this.getAllProducts(this.pages.current_page);
+            this.getProducts(this.pages.current_page);
             this.modal.hide();
           }
           this.$pushMessage(res);
@@ -177,7 +177,7 @@ export default {
       apiDeleteProducts(item.id)
         .then((res) => {
           if (res.data.success) {
-            this.getAllProducts(this.pages.current_page);
+            this.getProducts(this.pages.current_page);
             this.modal.hide();
           }
           this.$pushMessage(res);
@@ -221,7 +221,7 @@ export default {
   },
   created() {
     this.$emitter.emit('page-loading', true);
-    this.getAllProducts();
+    this.getProducts();
   },
 };
 </script>

@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import { apiUserCheck, apiUserLogout } from '@/scripts/api';
+import { userCheck, userLogout } from '@/scripts/api';
 
 export default {
   emits: ['page-loading', 'push-message'],
@@ -97,7 +97,7 @@ export default {
         token = val;
       });
       this.$http.defaults.headers.common.Authorization = token;
-      apiUserCheck()
+      userCheck()
         .then((res) => {
           if (!res.data.success) {
             console.log(res);
@@ -115,7 +115,7 @@ export default {
     },
     logout() {
       this.$emitter.emit('page-loading', true);
-      apiUserLogout()
+      userLogout()
         .then((res) => {
           document.cookie = `natureToken= ; expires=${new Date()}`;
           this.$router.push('/login');

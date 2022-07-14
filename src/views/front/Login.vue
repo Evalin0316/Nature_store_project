@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import { apiUserLogin } from '@/scripts/api';
+import userLogin from '@/scripts/api';
 import invalidMix from '@/mixins/InvalidMix.vue';
 
 export default {
@@ -85,7 +85,7 @@ export default {
         return;
       }
       this.$emitter.emit('page-loading', true);
-      apiUserLogin(this.user)
+      userLogin(this.user)
         .then((res) => {
           if (!res.data.success) {
             this.$pushMessage(res, res.data.message || '帳號或密碼錯誤');

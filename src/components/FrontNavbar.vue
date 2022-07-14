@@ -22,6 +22,14 @@
                 >關於Nature</router-link
               >
             </li>
+            <li class="navbar-itemd">
+              <router-link
+                class="nav-link"
+                to="/news"
+                @click="closeNav"
+                >最新消息</router-link
+              >
+            </li>
             <li class="navbar-item">
               <router-link
                 class="nav-link"
