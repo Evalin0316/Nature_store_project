@@ -4,7 +4,7 @@
       <h1 class="fs-4 font-weight-bold aboutTitle">最新消息</h1>
       <div class="container header-img fade-out"></div>
     </header>
-    <div class="accordion px-3 pt-5" id="accordionExample">
+    <!-- <div class="accordion px-3 pt-5" id="accordionExample">
       <div class="accordion-item" v-for="(item,index) in articleContent" :key="item.num">
         <h2 class="accordion-header" :id="heading + index">
           <button
@@ -26,10 +26,10 @@
           data-bs-parent="#accordionExample"
         >
           <div class="accordion-body">
-            {{ oneArticle }}
+            {{ item.title }}
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- <div class="accordion-item">
         <h2 class="accordion-header" id="headingTwo">
           <button
@@ -92,6 +92,14 @@
           </div>
         </div>
       </div> -->
+    <!-- </div> -->
+    <div>
+        <ul v-for="(item) in articleContent" :key="item.num">
+            <li>
+                <div @click="openArticle(item.id,item.num)">{{ item.title}}</div>
+                <div v-if="oneArticle !=='' && item.id">{{item.title }}</div>
+            </li>
+        </ul>
     </div>
   </div>
 </template>
