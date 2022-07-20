@@ -4,102 +4,32 @@
       <h1 class="fs-4 font-weight-bold aboutTitle">最新消息</h1>
       <div class="container header-img fade-out"></div>
     </header>
-    <!-- <div class="accordion px-3 pt-5" id="accordionExample">
-      <div class="accordion-item" v-for="(item,index) in articleContent" :key="item.num">
-        <h2 class="accordion-header" :id="heading + index">
+    <div class="accordion px-3 pt-5" id="accordionExample">
+      <div class="accordion-item" v-for="(item,index) in articleContent" :key="index">
+        <h2 class="accordion-header" :id="'flush-heading'+index">
           <button
             class="accordion-button"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#collapseOne"
+            :data-bs-target="'#flush-collapse'+index"
             aria-expanded="false"
-            aria-controls="collapseOne"
+            :aria-controls="'flush-collapse-'+index"
             @click="openArticle(item.id)"
           >
             {{ item.title }}
           </button>
         </h2>
         <div
-          id="collapseOne"
+          :id="'flush-collapse'+index"
           class="accordion-collapse collapse show"
-          :aria-labelledby="heading + index"
+          :aria-labelledby="'flush-heading'+index"
           data-bs-parent="#accordionExample"
         >
           <div class="accordion-body">
-            {{ item.title }}
-          </div>
-        </div>
-      </div> -->
-      <!-- <div class="accordion-item">
-        <h2 class="accordion-header" id="headingTwo">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseTwo"
-            aria-expanded="false"
-            aria-controls="collapseTwo"
-          >
-            Accordion Item #2
-          </button>
-        </h2>
-        <div
-          id="collapseTwo"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingTwo"
-          data-bs-parent="#accordionExample"
-        >
-          <div class="accordion-body">
-            <strong>This is the second item's accordion body.</strong> It is
-            hidden by default, until the collapse plugin adds the appropriate
-            classes that we use to style each element. These classes control the
-            overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or
-            overriding our default variables. It's also worth noting that just
-            about any HTML can go within the <code>.accordion-body</code>,
-            though the transition does limit overflow.
+            {{ oneArticle }}
           </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            Accordion Item #3
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#accordionExample"
-        >
-          <div class="accordion-body">
-            <strong>This is the third item's accordion body.</strong> It is
-            hidden by default, until the collapse plugin adds the appropriate
-            classes that we use to style each element. These classes control the
-            overall appearance, as well as the showing and hiding via CSS
-            transitions. You can modify any of this with custom CSS or
-            overriding our default variables. It's also worth noting that just
-            about any HTML can go within the <code>.accordion-body</code>,
-            though the transition does limit overflow.
-          </div>
-        </div>
-      </div> -->
-    <!-- </div> -->
-    <div>
-        <ul v-for="(item) in articleContent" :key="item.num">
-            <li class="">
-                <div @click="openArticle(item.id)">{{ item.title}}</div>
-                <div v-if="oneArticle == ''">{{ oneArticle }}</div>
-            </li>
-        </ul>
     </div>
   </div>
 </template>
@@ -115,11 +45,12 @@ export default {
       apiInfo: {
         id: '',
       },
+      show: '',
     };
   },
   watch: {},
   methods: {
-    GetAllArticles() {
+    GetAllArticles() { // 取得文章列表
       apiGetAllArticles().then((res) => {
         if (!res.data.success) {
           this.$pushMessage(res);
@@ -130,18 +61,18 @@ export default {
         }
       });
     },
-    GetArticles(id) {
+    GetArticles(id) { // 取得單一文章內文
       console.log(id);
       apiGetArticleContent(id).then((res) => {
         if (!res.data.success) {
           this.$pushMessage(res);
         } else {
           this.oneArticle = JSON.parse(JSON.stringify(res.data.article)).content;
-          console.log(JSON.parse(JSON.stringify(res.data.article)).content);
         }
       });
     },
     openArticle(id) {
+      this.show = id;
       this.GetArticles(id);
     },
   },
