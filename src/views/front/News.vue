@@ -95,9 +95,9 @@
     <!-- </div> -->
     <div>
         <ul v-for="(item) in articleContent" :key="item.num">
-            <li>
-                <div @click="openArticle(item.id,item.num)">{{ item.title}}</div>
-                <div v-if="oneArticle !=='' && item.id">{{item.title }}</div>
+            <li class="">
+                <div @click="openArticle(item.id)">{{ item.title}}</div>
+                <div v-if="oneArticle == ''">{{ oneArticle }}</div>
             </li>
         </ul>
     </div>

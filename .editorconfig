@@ -1,7 +1,7 @@
 [*.{js,jsx,ts,tsx,vue}]
-indent_style = space
-indent_size = 2
-end_of_line = lf
-trim_trailing_whitespace = true
-insert_final_newline = true
-max_line_length = 100
+indent_style = space #縮排使用空格
+indent_size = 2 #縮排2個字元
+end_of_line = lf #行結尾使用lf
+trim_trailing_whitespace = true #刪除行尾空格
+insert_final_newline = true #檔案結尾新增一個空行
+max_line_length = 100 #行最大長度

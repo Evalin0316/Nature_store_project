@@ -65,8 +65,8 @@
 </template>
 
 <script>
-import userLogin from '@/scripts/api';
 import invalidMix from '@/mixins/InvalidMix.vue';
+import { userLogin } from '@/scripts/api';
 
 export default {
   emits: ['page-loading', 'push-message'],
