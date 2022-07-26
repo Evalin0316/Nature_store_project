@@ -1,9 +1,9 @@
 <template>
-  <div class="loading bouncecookie"
+  <div class="loading Tshirt"
     ref="loading"
     :class="isLoading ? '' : 'fade'">
-    <i class="fas fa-tshirt fa-2x cookie"></i>
-    <span>incoming</span>
+    <i class="fas fa-tshirt fa-2x tshirt"></i>
+    <span>Loading</span>
   </div>
 </template>
 <script>
