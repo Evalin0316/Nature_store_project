@@ -38,6 +38,7 @@
 import { apiGetAllArticles, apiGetArticleContent } from '@/scripts/api';
 
 export default {
+  emits: ['page-loading'],
   data() {
     return {
       articleContent: '',
@@ -59,6 +60,7 @@ export default {
           const arry = JSON.parse(JSON.stringify(this.articleContent));
           this.apiInfo.id = arry.map((x) => x.id);
         }
+        this.$emitter.emit('page-loading', false);
       });
     },
     GetArticles(id) { // 取得單一文章內文
@@ -78,6 +80,7 @@ export default {
   },
   created() {
     this.GetAllArticles();
+    this.$emitter.emit('page-loading', true);
   },
 };
 </script>
